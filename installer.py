@@ -29,6 +29,9 @@ def downloadMac(packageNumber, installPath):
     with zipfile.ZipFile('.TMP/main.zip', 'r') as zip:
         zip.extractall(installPath)
         print('File unzipped successfully')
+        zip.close()
+    os.remove('.TMP/main.zip')
+    os.rmdir('.TMP')
 
 print("Welcome to the Project epsilon installer!\nWhat would you like to install?\n\n1: The main package.\n\nType in the number of what you want:")
 package = input()
